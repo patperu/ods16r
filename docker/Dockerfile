@@ -4,11 +4,10 @@ FROM rocker/hadleyverse
 MAINTAINER "Patrick Hausmann" patrick.hausmann@covimo.de
 
 ## install the required R packages
-RUN Rscript -e 'install.packages(c("ckanr"), dependencies = TRUE)'
+RUN Rscript -e 'install.packages(c("ckanr", "devtools"), dependencies = TRUE)'
 RUN Rscript -e 'install.packages(c("spatstat", "ncf"), dependencies = TRUE)'
 RUN Rscript -e 'install.packages(c("sp", "rgdal", "ggmap", "raster", "gplots", "gstat", "spdep"), dependencies = TRUE)'
 RUN Rscript -e 'install.packages(c("jsonlite", "data.table"), dependencies = TRUE)'
-RUN Rscript -e 'devtools::install_github("ropensci/analogsea")'
 RUN Rscript -e 'devtools::install_github("ropensci/geojsonio")'
 RUN Rscript -e 'devtools::install_github("ropenscilabs/gtfsr")'
 RUN Rscript -e 'devtools::install_github("rstudio/leaflet")'
