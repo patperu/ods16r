@@ -12,9 +12,15 @@ d <- docklet_create(size = getOption("do_size", "1gb"),
 d <- droplet(d$id)
 
 # pull images
-d %>% docklet_pull("rocker/hadleyverse")
+d %>% docklet_pull("partu/ods16r")
 d %>% docklet_pull("klaemo/couchdb:latest")
 d %>% docklet_images()
+
+lines <- "wget https://raw.githubusercontent.com/patperu/ods16r/master/scripts/download_data.sh
+          /bin/bash download_data.sh
+          rm download_data.sh"
+cmd <- paste0("ssh ", analogsea:::ssh_options(), " ", "root", "@", analogsea:::droplet_ip(d)," ", shQuote(lines))
+analogsea:::do_system(d, cmd, verbose = TRUE)
 
 # Make a snapshot of this machine.
 d %>%
