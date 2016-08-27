@@ -16,7 +16,5 @@ RUN Rscript -e 'devtools::install_github("hrbrmstr/overpass")'
 RUN Rscript -e 'devtools::install_github("ropensci/sofa")'
 RUN Rscript -e 'devtools::install_github("bokeh/rbokeh")'
 RUN Rscript -e 'devtools::install_github("sjmgarnier/viridis")'
-RUN Rscript -e 'devtools::install_github("patperu/AriaToscana")'
-RUN Rscript -e 'devtools::install_github("patperu/ropencoesione")'
 RUN apt-get update \
 && apt-get install -y sshpass
