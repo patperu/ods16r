@@ -5,15 +5,25 @@
 
 library("analogsea")
 
-d <- docklet_create(size = getOption("do_size", "1gb"),
+# set wait time
+options(do.wait_time=30)
+
+d <- docklet_create(name = "baseimg", 
+                    size = getOption("do_size", "1gb"),
                     region = getOption("do_region", "fra1"))
 
-# Needed to add this to update the IP address. OTherwise, I got a "network not up yet" error.
+# Needed to add this to update the IP address.
+# Otherwise, I got a "network not up yet" error.
 d <- droplet(d$id)
 
 # pull images
+
+# Haldeyverse + some libraries
 d %>% docklet_pull("partu/ods16r")
+
+# CouchDB 
 d %>% docklet_pull("klaemo/couchdb:latest")
+
 d %>% docklet_images()
 
 lines <- "wget https://raw.githubusercontent.com/patperu/ods16r/master/scripts/download_data.sh
