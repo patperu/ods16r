@@ -7,6 +7,7 @@ MAINTAINER "Patrick Hausmann" patrick.hausmann@covimo.de
 RUN Rscript -e 'install.packages(c("ckanr", "devtools"), dependencies = TRUE)'
 RUN Rscript -e 'install.packages(c("spatstat", "ncf", "highcharter"), dependencies = TRUE)'
 RUN Rscript -e 'install.packages(c("sp", "rgdal", "ggmap", "raster", "gplots", "gstat", "spdep"), dependencies = TRUE)'
+RUN Rscript -e 'install.packages(c("rasterVis", "maptools"), dependencies = TRUE)'
 RUN Rscript -e 'install.packages(c("jsonlite", "data.table", "xts"), dependencies = TRUE)'
 RUN Rscript -e 'devtools::install_github("sckott/analogsea")'
 RUN Rscript -e 'devtools::install_github(c("ramnathv/htmlwidgets", "rstudio/dygraphs"))'
