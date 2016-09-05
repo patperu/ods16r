@@ -4,7 +4,6 @@ mkdir -p /tutorial
 mkdir -p /tutorial/figure
 
 # Copy the data directory.
-wget --directory-prefix=/data https://github.com/patperu/ods16r/tree/master/data
 
 # Copy the tutorial directory.
 
